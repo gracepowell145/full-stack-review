@@ -32,9 +32,7 @@ massive({
 });
 
 //auth endpoints
-app.post('/api/register', authCtrl.register);
-app.post('/api/login', authCtrl.login);
-app.get('/api/logout', authCtrl.logout);
+
 
 //post endpoints
 app.post('/api/post', mainCtrl.createPost);
