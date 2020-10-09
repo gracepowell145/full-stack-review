@@ -12,13 +12,15 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
+<React.StrictMode>
   <Provider store={store}>
   <HashRouter>
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+      <App />
   </HashRouter>
-  </Provider>,
+  </React.StrictMode>
+  </Provider>
+  </React.StrictMode>
+  ,
   document.getElementById('root')
 );
 

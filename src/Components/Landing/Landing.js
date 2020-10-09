@@ -27,10 +27,29 @@ class Landing extends Component {
     }
 
     handleRegister = () => {
-
+// send info needed from req.body. 
+//destructer values from state
+const {username, email, password, verPassword, picture, registerView} = this.state; //now dont have to refer to this.state all the time
+if(password  && password === verPassword){
+    axios.post('/api/register', {username, email, password, profilePicture: picture})//posts to register endpoint. send it the info it needs. if names dont match then you have to do name: otherName
+    .then(res => {
+        //redux functions go here. /dash routes.js
+        this.props.history.push('/dash')
+    })
+    .catch(err => console.log(err))
+} else {
+    alert("Passwords don't match!");
+}
     }
 
     handleLogin = () => {
+        const {email, password} = this.state; //all we need for login
+        axios.post('/api/login', {email, password})
+            .then( res => {
+                //redux function goes here
+                this.props.history.push('/dash')
+            })
+            .catch(err => console.log(err));
 
     }
 
